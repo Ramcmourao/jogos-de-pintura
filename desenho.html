@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+      <meta charset="UTF-8">
+      <title>Meu Primeiro Desenho! 🎨</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="css/desenho.css">
+      <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+</head>
+<body>
+      <div class="rainbow-background">
+        <h1>
+          <span class="emoji-bounce">🎨</span> 
+          Meu Primeiro Desenho! 
+          <span class="emoji-bounce">✏️</span>
+        </h1>
+
+        <div class="container">
+          <div class="left-panel">
+            <div class="canvas-container">
+              <canvas id="tela" width="800" height="600"></canvas>
+            </div>
+          </div>
+
+          <div class="right-panel">
+            <div class="color-box">
+              <h2>Minhas Cores!</h2>
+              <div class="opcoes">
+                <!-- Cores primárias primeiro -->
+                <div class="cor" style="background-color: #FF0000;" onclick="mudaCor('#FF0000', event)"></div>  <!-- Vermelho vivo -->
+                <div class="cor" style="background-color: #FFE600;" onclick="mudaCor('#FFE600', event)"></div>  <!-- Amarelo forte -->
+                <div class="cor" style="background-color: #3498DB;" onclick="mudaCor('#3498DB', event)"></div>  <!-- Azul vibrante (menos “duro” que #0000FF) -->
+                <div class="cor" style="background-color: #4CE44C;" onclick="mudaCor('#4CE44C', event)"></div>  <!-- Verde alegre -->
+          
+                <!-- Outras cores divertidas -->
+                <div class="cor" style="background-color: #FF69B4;" onclick="mudaCor('#FF69B4', event)"></div>  <!-- Rosa “chiclete” -->
+                <div class="cor" style="background-color: #FFA500;" onclick="mudaCor('#FFA500', event)"></div>  <!-- Laranja forte -->
+                <div class="cor" style="background-color: #9B59B6;" onclick="mudaCor('#9B59B6', event)"></div>  <!-- Roxo vivo (não muito escuro) -->
+                <div class="cor" style="background-color: #F7B267;" onclick="mudaCor('#F7B267', event)"></div>  <!-- Laranja pastel -->
+                <div class="cor" style="background-color: #FFE5D0;" onclick="mudaCor('#FFE5D0', event)"></div>  <!-- Tom pêssego suave -->
+                <div class="cor" style="background-color: #FFFFFF;" onclick="mudaCor('#FFFFFF', event)"></div>  <!-- Branco (bom para “apagar”) -->
+              </div>
+            </div>
+
+            <div class="botoes-acao">
+              <button id="undoBtn" class="button-magic">
+                <span class="emoji-wiggle">🔙</span> Voltar
+              </button>
+              <button id="borrachaBtn" class="button-magic">
+                <span class="emoji-wiggle">🧽</span> Apagar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="js/desenho.js"></script>
+</body>
+</html>

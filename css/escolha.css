@@ -1,0 +1,94 @@
+/* Estilos base para manter o padrão divertido e responsivo */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Fredoka One', cursive;
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #a1c4fd);
+  min-height: 100vh;
+}
+
+/* Fundo animado tipo arco-íris */
+.rainbow-background {
+  animation: rainbow-bg 20s linear infinite;
+  padding: 20px;
+}
+
+@keyframes rainbow-bg {
+  0%   { background-color: rgba(255, 154, 158, 0.1); }
+  25%  { background-color: rgba(250, 208, 196, 0.1); }
+  50%  { background-color: rgba(161, 196, 253, 0.1); }
+  75%  { background-color: rgba(194, 233, 251, 0.1); }
+  100% { background-color: rgba(255, 154, 158, 0.1); }
+}
+
+/* Título animado */
+h1 {
+  text-align: center;
+  color: #FF6B6B;
+  font-size: 3em;
+  text-shadow: 3px 3px 0px #FFF, 6px 6px 0px rgba(0,0,0,0.1);
+  margin: 20px 0;
+}
+
+.emoji-bounce {
+  display: inline-block;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Container central para a galeria */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Galeria de imagens */
+#imagens {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Estilo para cada miniatura (imagem-thumb) */
+.imagem-thumb {
+  width: 200px;
+  margin: 15px;
+  cursor: pointer;
+  border: 5px solid #FFF;
+  border-radius: 15px;
+  border-color: #ba1e1e;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+  background-color: #FFF;
+}
+
+.imagem-thumb:hover {
+  transform: scale(1.1);
+  border-color: #FF6B6B;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2em;
+  }
+  
+  .imagem-thumb {
+    width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .imagem-thumb {
+    width: 120px;
+  }
+}

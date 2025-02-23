@@ -4,17 +4,22 @@
   <meta charset="UTF-8">
   <title>Escolhe um desenho para pintar! 🎨</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Usando a mesma fonte e estilo de fundo -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!-- Fonte e fundo -->
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/escolha.css">
 </head>
 <body>
   <div class="rainbow-background">
-    <h1>
-      <span class="emoji-bounce">🎨</span>
-      Escolhe um desenho para pintar!
-      <span class="emoji-bounce">🖌️</span>
-    </h1>
+    <header class="top-menu">
+      <h1>🎨 Escolhe um desenho para pintar! 🖌️</h1>
+      <div class="buttons-container">
+        <button class="back-btn" onclick="window.location.href='index.html'">Voltar</button>
+        <button class="random-btn" onclick="window.location.href='desenho.html'">Desenho Aleatório</button>
+      </div>
+    </header>
     
     <div class="container">
       <div id="imagens"></div>

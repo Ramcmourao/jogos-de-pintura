@@ -1,0 +1,160 @@
+/* Zera margens e paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fonte e fundo */
+body {
+  font-family: "Comic Sans MS", cursive;
+  background-color: #FFE5F1;
+  text-align: center;
+  padding: 20px; /* Se quiser, pode reduzir ou remover */
+}
+
+/* Menu Superior */
+.top-menu {
+  /* Centraliza o h1 e permite posicionar o botão à direita */
+  position: relative;              /* para o botão absolute */
+  display: flex;                   /* flex container */
+  justify-content: center;         /* centraliza o título horizontalmente */
+  align-items: center;             /* alinha verticalmente */
+  padding: 15px 0;
+  background-color: #FFE5F1;       /* mesmo fundo do body, se preferir */
+}
+
+/* Título centralizado no menu */
+.top-menu h1 {
+  margin: 0;
+  font-size: 42px;
+  color: #FF6B6B;
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.2);
+  animation: bounce 1s infinite;
+}
+
+/* Botão “Desenho Aleatório” à direita */
+.random-btn {
+  position: absolute;     /* Para ficar no canto direito */
+  right: 20px;            /* Ajuste a distância horizontal */
+  top: 50%;               /* Centraliza verticalmente no menu */
+  transform: translateY(-50%);
+
+  background: #FF6B6B;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 18px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+.random-btn:hover {
+  transform: translateY(-50%) scale(1.05);
+  background-color: #FF8B8B;
+}
+.random-btn:active {
+  transform: translateY(-50%) scale(0.97);
+}
+
+/* Animação bounce do título */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Grade de Categorias */
+#lista-categorias {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 1200px;
+  margin: 20px auto;  /* Centraliza e dá espaçamento abaixo do menu */
+  padding: 20px;
+}
+
+/* Cartão de categoria */
+.categoria {
+  background-color: white;
+  border-radius: 30px;
+  padding: 25px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  border: 3px solid #FFC107;
+}
+.categoria:hover {
+  transform: scale(1.05);
+  border-color: #FF6B6B;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+.categoria:active {
+  transform: scale(0.98);
+}
+
+/* Título da categoria */
+.categoria h3 {
+  color: #4A90E2;
+  font-size: 32px;
+  margin: 20px 0;
+}
+
+/* Imagem dentro da categoria */
+.categoria img {
+  width: 85%;
+  height: auto;
+  border-radius: 25px;
+  border: 6px solid #FFC107;
+  transition: border-color 0.3s ease;
+}
+.categoria:hover img {
+  border-color: #FF6B6B;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  #lista-categorias {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-menu h1 {
+    font-size: 36px;
+  }
+  #lista-categorias {
+    grid-template-columns: 1fr;
+    padding: 15px;
+  }
+  .categoria {
+    padding: 20px;
+  }
+  .categoria h3 {
+    font-size: 28px;
+  }
+
+  .top-menu {
+    flex-direction: column;      /* Empilha título e botão verticalmente */
+    align-items: center;         /* Centraliza ambos */
+    padding: 10px 0;
+  }
+  
+  .random-btn {
+    position: static;           /* Remove posicionamento absoluto */
+    margin-top: 10px;           /* Espaço entre o título e o botão */
+    transform: none;            /* Remove o translateY */
+  }
+}
+
+@media (max-width: 480px) {
+  .top-menu h1 {
+    font-size: 32px;
+  }
+  .categoria {
+    padding: 15px;
+  }
+  .categoria img {
+    width: 90%;
+    border-width: 4px;
+  }
+}

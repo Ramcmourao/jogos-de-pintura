@@ -2,11 +2,20 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Escolhe a Categoria</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-  <h1>👋 Vamos Brincar!</h1>
+  <!-- Menu Superior -->
+  <header class="top-menu">
+    <h1>👋 Vamos Pintar! 👋</h1>
+    <button class="random-btn" onclick="window.location.href='desenho.html'">
+      Desenho Aleatório
+    </button>
+  </header>
+
+  <!-- Listagem de Categorias -->
   <div id="lista-categorias"></div>
 
   <script src="js/index.js"></script>

@@ -8,6 +8,33 @@ html, body {
   height: 100%;
 }
 
+/* Menu Superior */
+.top-menu {
+  /* Centraliza o h1 e permite posicionar o botão à direita */
+  position: relative;              /* para o botão absolute */
+  display: flex;                   /* flex container */
+  justify-content: center;         /* centraliza o título horizontalmente */
+  align-items: center;             /* alinha verticalmente */
+  padding: 15px 0;
+}
+
+/* Botão “Desenho Aleatório” à direita */
+.random-btn {
+  position: absolute;     /* Para ficar no canto direito */
+  right: 20px;            /* Ajuste a distância horizontal */
+  top: 50%;               /* Centraliza verticalmente no menu */
+  transform: translateY(-50%);
+
+  background: #FF6B6B;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  font-size: 18px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
 /* Fonte e fundo lúdico */
 body {
   font-family: 'Fredoka One', cursive;

@@ -1,22 +1,21 @@
-/* Reset básico e forçar o uso da viewport sem scroll */
+/* Reset básico e evitar scroll */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-  
   html, body {
     height: 100%;
     overflow: hidden;
   }
   
-  /* Corpo com fundo degradê e fonte lúdica */
+  /* Fonte e fundo lúdico */
   body {
     font-family: 'Fredoka One', cursive;
     background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #a1c4fd);
   }
   
-  /* Container principal que abrange toda a página */
+  /* Container principal */
   .mobile-container {
     display: flex;
     flex-direction: column;
@@ -24,83 +23,80 @@
     padding: 5px;
   }
   
-  /* Cabeçalho */
+  /* Cabeçalho: com espaçamento mínimo */
   header {
     text-align: center;
-    padding: 5px;
+    padding: 3px 0;
   }
-  
   h1 {
     font-size: 4vh;
     color: #FF6B6B;
     text-shadow: 2px 2px 0px #FFF;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
   }
   
-  /* Container do canvas: ocupa a maior parte da tela */
+  /* Área do canvas: fundo branco, ocupa maior parte da tela */
   .canvas-container {
     flex: 1;
+    background: white; /* Fundo branco para facilitar a pintura */
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
   }
   
   canvas {
     width: 100%;
-    max-width: 100%;
     height: auto;
+    display: block;
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   }
   
-  /* Painel de cores: ocupa toda a largura, com cores menores */
+  /* Painel de cores: ocupa toda a largura, espaçamento reduzido */
   .color-panel {
     width: 100%;
     background: white;
     border-radius: 10px;
-    padding: 5px;
-    margin-bottom: 5px;
+    padding: 3px;
+    margin-bottom: 2px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   }
-  
   .color-panel h2 {
     text-align: center;
     color: #FF6B6B;
     font-size: 3vh;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
   }
   
-  /* Grid de cores: 5 colunas para exibir as cores de forma compacta */
+  /* Grid de cores: 5 colunas, com bolas menores */
   .opcoes {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 3px;
-    padding: 3px;
+    gap: 2px;
+    padding: 2px;
   }
-  
   .cor {
     width: 100%;
-    padding-top: 100%;  /* Garante uma caixa quadrada */
+    padding-top: 100%;  /* Mantém a proporção quadrada, mas a célula será pequena conforme o grid */
     position: relative;
     border-radius: 50%;
     cursor: pointer;
-    border: 2px solid white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 1px solid white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     transition: transform 0.3s;
   }
-  
   .cor:hover {
     transform: scale(1.1);
   }
   
-  /* Botões de ação: dispostos horizontalmente, ocupando a largura */
+  /* Botões: sem espaçamento extra */
   .botoes-acao {
     display: flex;
     justify-content: space-around;
-    padding: 5px;
+    padding: 3px 0;
   }
-  
   .button-magic {
     background: linear-gradient(45deg, #FF6B6B, #FFE66D);
     border: none;
@@ -112,20 +108,30 @@
     transition: transform 0.3s, box-shadow 0.3s;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
-  
   .button-magic:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   }
-  
   .emoji-wiggle {
     display: inline-block;
     animation: wiggle 2s infinite;
   }
-  
   @keyframes wiggle {
     0%, 100% { transform: rotate(0deg); }
     25% { transform: rotate(-10deg); }
     75% { transform: rotate(10deg); }
   }
   
+  /* Responsividade: para telas menores, os elementos já estão compactos */
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 4vh;
+    }
+    .color-panel h2 {
+      font-size: 3vh;
+    }
+    .button-magic {
+      font-size: 2.5vh;
+      padding: 8px 10px;
+    }
+  }  

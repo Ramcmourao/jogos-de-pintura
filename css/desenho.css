@@ -1,230 +1,172 @@
-/* Força a altura total e remove overflow para evitar scroll */
-html, body {
+/* Reset básico e evitar scroll */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+html, body {
   height: 100%;
-  overflow: hidden;
 }
 
-/* Fonte e fundo com animação suave */
+/* Fonte e fundo lúdico */
 body {
   font-family: 'Fredoka One', cursive;
   background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #a1c4fd);
 }
 
-.rainbow-background {
+/* Container principal, mobile-first (vertical) */
+.mobile-container {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Distribui os elementos verticalmente */
-  height: 100vh; /* Ocupa toda a altura da tela */
-  padding: 10px;
-  animation: rainbow-bg 20s linear infinite;
-}
-
-@keyframes rainbow-bg {
-  0% { background-color: rgba(255, 154, 158, 0.1); }
-  25% { background-color: rgba(250, 208, 196, 0.1); }
-  50% { background-color: rgba(161, 196, 253, 0.1); }
-  75% { background-color: rgba(194, 233, 251, 0.1); }
-  100% { background-color: rgba(255, 154, 158, 0.1); }
-}
-
-/* Título centralizado com animação */
-h1 {
-  text-align: center;
-  color: #FF6B6B;
-  font-size: 3vh;  /* Usa unidades relativas à altura da viewport */
-  text-shadow: 3px 3px 0px #FFF, 6px 6px 0px rgba(0,0,0,0.1);
-  margin: 5px 0;
-}
-
-/* Animação simples para os emojis */
-.emoji-bounce {
-  display: inline-block;
-  animation: bounce 1s infinite;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-
-/* Container principal ajustado para ocupar o espaço disponível */
-.container {
-  display: flex;
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 10px;
-}
-
-/* Estilo do painel esquerdo (canvas) */
-.left-panel {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-}
-
-/* Container do canvas com borda divertida */
-.canvas-container {
-  background: white;
-  border-radius: 20px;
+  flex-direction: column; /* Sempre em linhas */
+  height: 100vh;
   padding: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  /* Redimensiona proporcionalmente ao espaço disponível */
-  max-height: 50vh;
-  max-width: 90vw;
+  align-items: center;    /* Centraliza horizontalmente no mobile também */
 }
 
+/* Cabeçalho */
+header {
+  text-align: center;
+  padding: 3px 0;
+}
+h1 {
+  font-size: 4vh;
+  color: #FF6B6B;
+  text-shadow: 2px 2px 0px #FFF;
+  margin-bottom: 2px;
+}
+
+/* Contêiner do canvas */
+.canvas-container {
+  flex: none;
+  border-color: #FF6B6B;
+  border-style: solid;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 0px;
+  width: 100%;        /* Ocupa toda a largura do container */
+  max-width: 600px;   /* Em telas maiores, não passa de 600px de largura */
+}
 canvas {
-  border-radius: 15px;
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 10px;
 }
 
-/* Estilo do painel direito (paleta e botões) */
-.right-panel {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 0 0 40vw;  /* Garante que o painel direito ocupe uma parte da viewport */
-  max-width: 400px;
-}
-
-/* Caixa de cores com borda e sombra */
-.color-box {
+/* Painel de cores */
+.color-panel {
+  width: 100%;
+  max-width: 600px; /* mesma largura máxima do canvas */
   background: white;
-  border-radius: 20px;
-  padding: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  flex: 1;
+  border-radius: 10px;
+  padding: 3px;
   margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
-
-/* Título da caixa de cores */
-.color-box h2 {
-  color: #FF6B6B;
+.color-panel h2 {
   text-align: center;
-  margin-bottom: 10px;
-  font-size: 2.5vh;
+  color: #FF6B6B;
+  font-size: 3vh;
+  margin-bottom: 2px;
 }
 
-/* Grid de cores: ajustado para caber sem scroll */
+/* Grid de cores */
 .opcoes {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 5px;
+  /* mobile: 6 colunas, ou quantas quiser */
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
   padding: 5px;
 }
-
-/* Cada cor */
 .cor {
   width: 100%;
-  padding-top: 100%; /* Gera uma caixa quadrada responsiva */
+  padding-top: 80%;
   position: relative;
   border-radius: 50%;
   cursor: pointer;
-  border: 3px solid white;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
 }
-
 .cor:hover {
-  transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transform: scale(1.1);
 }
 
-/* Para posicionar o fundo da cor */
-.cor::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-radius: 50%;
-}
-
-/* Botões mágicos */
+/* Botões em linha, abaixo das cores */
 .botoes-acao {
   margin-top: 10px;
   display: flex;
-  gap: 10px;
-  justify-content: center;
+  justify-content: space-around;
+  padding: 3px 0;
+  width: 100%;
+  max-width: 600px; /* mesma largura máxima */
 }
-
 .button-magic {
   background: linear-gradient(45deg, #FF6B6B, #FFE66D);
   border: none;
-  padding: 10px 20px;
+  padding: 8px 15px;
   border-radius: 50px;
   color: white;
-  font-size: 2vh;
+  font-size: 2.5vh;
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
 .button-magic:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
+/* Animação do emoji */
 .emoji-wiggle {
   display: inline-block;
   animation: wiggle 2s infinite;
 }
-
 @keyframes wiggle {
-  0%, 100% { transform: rotate(0); }
+  0%, 100% { transform: rotate(0deg); }
   25% { transform: rotate(-10deg); }
   75% { transform: rotate(10deg); }
 }
 
-/* Ajustes responsivos para telas menores */
-@media (max-width: 1024px) {
-  .container {
-    flex-direction: column;
-    gap: 10px;
+/* ================================
+   MEDIA QUERY PARA TELAS MAIORES
+   ================================ */
+@media (min-width: 768px) {
+  /* Em telas >= 768px, vamos apenas:
+     - Aumentar a altura do container se quiser
+     - Ajustar a largura máxima (ex: 800px) 
+     - Aumentar a grid de cores, se quiser
+  */
+  .mobile-container {
+    height: auto;       /* Permite crescer */
+    margin: 0 auto;     /* Centraliza na tela */
+    max-width: 900px;   /* Limita a largura total */
   }
 
-  .left-panel, .right-panel {
-    flex: none;
-    width: 90%;
-  }
-
-  .canvas-container {
-    max-height: 40vh;
-  }
-
-  .right-panel {
-    max-width: 90%;
+  /* Aumentar colunas da grid em telas maiores, se quiser */
+  .opcoes {
+    grid-template-columns: repeat(8, 1fr); /* Exemplo: 8 colunas no desktop */
+    gap: 15px;
+    padding: 25px;
   }
 }
 
-@media (max-width: 768px) {
+/* Responsividade extra para telas muito pequenas */
+@media (max-width: 480px) {
   h1 {
-    font-size: 2.2vh;
+    font-size: 4vh;
   }
-  .opcoes {
-    grid-template-columns: repeat(4, 1fr);
+  .color-panel h2 {
+    font-size: 3vh;
   }
   .button-magic {
-    padding: 8px 15px;
-    font-size: 1.8vh;
-  }
-}
-
-@media (max-width: 480px) {
-  .opcoes {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .cor {
-    border-width: 2px;
+    font-size: 2.5vh;
+    padding: 8px 10px;
   }
 }

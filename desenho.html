@@ -1,59 +1,67 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-      <meta charset="UTF-8">
-      <title>Meu Primeiro Desenho! 🎨</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="css/desenho.css">
-      <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Meu Desenho Mobile 🎨</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/mobile.css">
 </head>
 <body>
-      <div class="rainbow-background">
-        <h1>
-          <span class="emoji-bounce">🎨</span> 
-          Meu Primeiro Desenho! 
-          <span class="emoji-bounce">✏️</span>
-        </h1>
+  <div class="mobile-container">
+    <header>
+      <h1>🎨 Meu Desenho!</h1>
+    </header>
 
-        <div class="container">
-          <div class="left-panel">
-            <div class="canvas-container">
-              <canvas id="tela" width="800" height="600"></canvas>
-            </div>
-          </div>
+    <div class="canvas-container">
+      <canvas id="tela" width="800" height="600"></canvas>
+    </div>
 
-          <div class="right-panel">
-            <div class="color-box">
-              <h2>Minhas Cores!</h2>
-              <div class="opcoes">
-                <!-- Cores primárias primeiro -->
-                <div class="cor" style="background-color: #FF0000;" onclick="mudaCor('#FF0000', event)"></div>  <!-- Vermelho vivo -->
-                <div class="cor" style="background-color: #FFE600;" onclick="mudaCor('#FFE600', event)"></div>  <!-- Amarelo forte -->
-                <div class="cor" style="background-color: #3498DB;" onclick="mudaCor('#3498DB', event)"></div>  <!-- Azul vibrante (menos “duro” que #0000FF) -->
-                <div class="cor" style="background-color: #4CE44C;" onclick="mudaCor('#4CE44C', event)"></div>  <!-- Verde alegre -->
-          
-                <!-- Outras cores divertidas -->
-                <div class="cor" style="background-color: #FF69B4;" onclick="mudaCor('#FF69B4', event)"></div>  <!-- Rosa “chiclete” -->
-                <div class="cor" style="background-color: #FFA500;" onclick="mudaCor('#FFA500', event)"></div>  <!-- Laranja forte -->
-                <div class="cor" style="background-color: #9B59B6;" onclick="mudaCor('#9B59B6', event)"></div>  <!-- Roxo vivo (não muito escuro) -->
-                <div class="cor" style="background-color: #F7B267;" onclick="mudaCor('#F7B267', event)"></div>  <!-- Laranja pastel -->
-                <div class="cor" style="background-color: #FFE5D0;" onclick="mudaCor('#FFE5D0', event)"></div>  <!-- Tom pêssego suave -->
-                <div class="cor" style="background-color: #FFFFFF;" onclick="mudaCor('#FFFFFF', event)"></div>  <!-- Branco (bom para “apagar”) -->
-              </div>
-            </div>
+    <div class="color-panel">
+      <h2>Minhas Cores!</h2>
+      <div class="opcoes">
+        <div class="cor" style="background-color: #FF6B6B;" onclick="mudaCor('#FF6B6B', event)"></div>
+        <div class="cor" style="background-color: #FF8B8B;" onclick="mudaCor('#FF8B8B', event)"></div>
+        <div class="cor" style="background-color: #FF9999;" onclick="mudaCor('#FF9999', event)"></div>
+        <div class="cor" style="background-color: #FFA5D2;" onclick="mudaCor('#FFA5D2', event)"></div>
+        <div class="cor" style="background-color: #FFB3B3;" onclick="mudaCor('#FFB3B3', event)"></div>
 
-            <div class="botoes-acao">
-              <button id="undoBtn" class="button-magic">
-                <span class="emoji-wiggle">🔙</span> Voltar
-              </button>
-              <button id="borrachaBtn" class="button-magic">
-                <span class="emoji-wiggle">🧽</span> Apagar
-              </button>
-            </div>
-          </div>
-        </div>
+        <div class="cor" style="background-color: #FFD93D;" onclick="mudaCor('#FFD93D', event)"></div>
+        <div class="cor" style="background-color: #FFB347;" onclick="mudaCor('#FFB347', event)"></div>
+        <div class="cor" style="background-color: #F7B267;" onclick="mudaCor('#F7B267', event)"></div>
+        <div class="cor" style="background-color: #FFE5B4;" onclick="mudaCor('#FFE5B4', event)"></div>
+        <div class="cor" style="background-color: #FFF07C;" onclick="mudaCor('#FFF07C', event)"></div>
+
+        <div class="cor" style="background-color: #95FF95;" onclick="mudaCor('#95FF95', event)"></div>
+        <div class="cor" style="background-color: #98FB98;" onclick="mudaCor('#98FB98', event)"></div>
+        <div class="cor" style="background-color: #C4FFC4;" onclick="mudaCor('#C4FFC4', event)"></div>
+        <div class="cor" style="background-color: #B2FF59;" onclick="mudaCor('#B2FF59', event)"></div>
+        <div class="cor" style="background-color: #D2F898;" onclick="mudaCor('#D2F898', event)"></div>
+
+        <div class="cor" style="background-color: #6FC3FF;" onclick="mudaCor('#6FC3FF', event)"></div>
+        <div class="cor" style="background-color: #87CEEB;" onclick="mudaCor('#87CEEB', event)"></div>
+        <div class="cor" style="background-color: #A3E6FF;" onclick="mudaCor('#A3E6FF', event)"></div>
+        <div class="cor" style="background-color: #D6F5FE;" onclick="mudaCor('#D6F5FE', event)"></div>
+        <div class="cor" style="background-color: #3498DB;" onclick="mudaCor('#3498DB', event)"></div>
+
+        <div class="cor" style="background-color: #C5A3FF;" onclick="mudaCor('#C5A3FF', event)"></div>
+        <div class="cor" style="background-color: #DDA0DD;" onclick="mudaCor('#DDA0DD', event)"></div>
+        <div class="cor" style="background-color: #B19CD9;" onclick="mudaCor('#B19CD9', event)"></div>
+        <div class="cor" style="background-color: #E6B3FF;" onclick="mudaCor('#E6B3FF', event)"></div>
+
       </div>
+    </div>
 
-      <script src="js/desenho.js"></script>
+    <div class="botoes-acao">
+      <button id="undoBtn" class="button-magic">
+        <span class="emoji-wiggle">🔙</span> Anular
+      </button>
+      <button id="borrachaBtn" class="button-magic">
+        <span class="emoji-wiggle">🧽</span> Borracha
+      </button>
+    </div>
+  </div>
+
+  <script src="js/desenho.js"></script>
 </body>
 </html>

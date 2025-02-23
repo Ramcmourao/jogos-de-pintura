@@ -1,16 +1,24 @@
-/* Estilos base */
-body {
+/* Força a altura total e remove overflow para evitar scroll */
+html, body {
   margin: 0;
   padding: 0;
-  font-family: 'Fredoka One', cursive;
-  background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #a1c4fd);
-  min-height: 100vh;
+  height: 100%;
+  overflow: hidden;
 }
 
-/* Animação de fundo arco-íris suave */
+/* Fonte e fundo com animação suave */
+body {
+  font-family: 'Fredoka One', cursive;
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #a1c4fd);
+}
+
 .rainbow-background {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribui os elementos verticalmente */
+  height: 100vh; /* Ocupa toda a altura da tela */
+  padding: 10px;
   animation: rainbow-bg 20s linear infinite;
-  padding: 20px;
 }
 
 @keyframes rainbow-bg {
@@ -21,16 +29,16 @@ body {
   100% { background-color: rgba(255, 154, 158, 0.1); }
 }
 
-/* Título animado */
+/* Título centralizado com animação */
 h1 {
   text-align: center;
   color: #FF6B6B;
-  font-size: 3em;
-  text-shadow: 3px 3px 0px #FFF, 
-               6px 6px 0px rgba(0,0,0,0.1);
-  margin: 20px 0;
+  font-size: 3vh;  /* Usa unidades relativas à altura da viewport */
+  text-shadow: 3px 3px 0px #FFF, 6px 6px 0px rgba(0,0,0,0.1);
+  margin: 5px 0;
 }
 
+/* Animação simples para os emojis */
 .emoji-bounce {
   display: inline-block;
   animation: bounce 1s infinite;
@@ -38,98 +46,133 @@ h1 {
 
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-5px); }
 }
 
-/* Container principal */
+/* Container principal ajustado para ocupar o espaço disponível */
 .container {
   display: flex;
+  flex: 1;
   justify-content: center;
-  align-items: flex-start;
-  gap: 30px;
+  align-items: center;
+  gap: 20px;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
-/* Canvas com borda divertida */
+/* Estilo do painel esquerdo (canvas) */
+.left-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+/* Container do canvas com borda divertida */
 .canvas-container {
   background: white;
   border-radius: 20px;
-  padding: 10px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1),
-              0 0 0 10px #FFE66D,
-              0 0 0 20px #FF6B6B;
+  padding: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  /* Redimensiona proporcionalmente ao espaço disponível */
+  max-height: 50vh;
+  max-width: 90vw;
 }
 
 canvas {
   border-radius: 15px;
   width: 100%;
-  max-width: 800px;
   height: auto;
+  display: block;
 }
 
-/* Paleta de cores */
+/* Estilo do painel direito (paleta e botões) */
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 0 0 40vw;  /* Garante que o painel direito ocupe uma parte da viewport */
+  max-width: 400px;
+}
+
+/* Caixa de cores com borda e sombra */
 .color-box {
   background: white;
   border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  padding: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  flex: 1;
+  margin-bottom: 10px;
 }
 
+/* Título da caixa de cores */
 .color-box h2 {
   color: #FF6B6B;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  font-size: 2.5vh;
 }
 
+/* Grid de cores: ajustado para caber sem scroll */
 .opcoes {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 15px;
-  padding: 10px;
+  gap: 5px;
+  padding: 5px;
 }
 
-/* Cores animadas */
+/* Cada cor */
 .cor {
-  width: 50px;
-  height: 50px;
+  width: 100%;
+  padding-top: 100%; /* Gera uma caixa quadrada responsiva */
+  position: relative;
   border-radius: 50%;
   cursor: pointer;
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   transition: transform 0.3s, box-shadow 0.3s;
-  border: 4px solid white;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .cor:hover {
-  transform: scale(1.2) rotate(10deg);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* Para posicionar o fundo da cor */
+.cor::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 50%;
 }
 
 /* Botões mágicos */
 .botoes-acao {
-  margin-top: 30px;
+  margin-top: 10px;
   display: flex;
-  gap: 20px;
+  gap: 10px;
   justify-content: center;
 }
 
 .button-magic {
   background: linear-gradient(45deg, #FF6B6B, #FFE66D);
   border: none;
-  padding: 15px 30px;
+  padding: 10px 20px;
   border-radius: 50px;
   color: white;
-  font-size: 1.2em;
+  font-size: 2vh;
   cursor: pointer;
-  font-family: 'Fredoka One', cursive;
   transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
 .button-magic:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
 
 .emoji-wiggle {
@@ -143,40 +186,37 @@ canvas {
   75% { transform: rotate(10deg); }
 }
 
-/* Responsividade */
+/* Ajustes responsivos para telas menores */
 @media (max-width: 1024px) {
   .container {
     flex-direction: column;
-    align-items: center;
+    gap: 10px;
+  }
+
+  .left-panel, .right-panel {
+    flex: none;
+    width: 90%;
   }
 
   .canvas-container {
-    margin-bottom: 30px;
-    width: 90%;
+    max-height: 40vh;
   }
 
-  .color-box {
-    width: 90%;
+  .right-panel {
+    max-width: 90%;
   }
 }
 
 @media (max-width: 768px) {
   h1 {
-    font-size: 2em;
+    font-size: 2.2vh;
   }
-
   .opcoes {
     grid-template-columns: repeat(4, 1fr);
   }
-
-  .botoes-acao {
-    flex-direction: column;
-    align-items: center;
-  }
-
   .button-magic {
-    width: 100%;
-    margin: 5px 0;
+    padding: 8px 15px;
+    font-size: 1.8vh;
   }
 }
 
@@ -184,9 +224,7 @@ canvas {
   .opcoes {
     grid-template-columns: repeat(3, 1fr);
   }
-
   .cor {
-    width: 40px;
-    height: 40px;
+    border-width: 2px;
   }
 }
